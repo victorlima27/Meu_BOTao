@@ -23,20 +23,20 @@ class MyClient(discord.Client):
 
         if message.content.lower().startswith('!ajuda'):
             embed = discord.Embed(
-                title = "Titulo aqui",
-                description = "descrição",
+                title = "Prazer eu sou o Bot do Victão!",
+                description = "Obrigado por me convidar para o seu servidor",
                 color = 11598249
             )
             
-            embed.set_author(name='Autor', icon_url='https://photos.app.goo.gl/kN9gS8dajHyhJMz59')
+            embed.set_author(name='Autor', icon_url='https://image.flaticon.com/icons/png/512/3563/3563395.png')
 
-            embed.set_thumbnail(url='https://photos.app.goo.gl/kN9gS8dajHyhJMz59')
+            embed.set_thumbnail(url='https://w7.pngwing.com/pngs/996/981/png-transparent-osu-hearts-of-iron-iv-scp-foundation-reddit-video-game-mouth-smile-miscellaneous-game-people.png')
 
-            embed.set_image(url='https://photos.app.goo.gl/kN9gS8dajHyhJMz59')
+            embed.set_image(url='https://lh3.googleusercontent.com/QaUbp93xTVKq7OZVrVXeba4qdualF75FckRjkF8iiXHviqQR4WhozPVXBrkbDizR09r5EDxuLLAnhivYI3ItynZpOW--iavJ_UbjkgAfATfGn0s_Dp2hJXPRjiLn89zgZU2ChjiepJElY0Z0J8h09mTMA1dXANtI5mwJIk29J5oCJ31fWEaLAVUe4_PnUSSIIXd1nupw-nr-FmWZfadYrq5jg6Pr7y2pS7Fnpgqu2TKDIzYPt0cHH70CG0k8OroDUgEEtHkUH9XXzKf_pPvkpBoFtan4WnKOIJZJhqWjU5iyl1NstIMUpjPIVNib57Y3fdGTAG-QgtPLApft5p_TGw_jZ5dmiYMZtMpHFUZKE9ohJi2vEgI71saaI_WCPYYm2CKb9y2cw-CwXTa-WwfsoB5e3xloAt8Lg9CnQ8SmUVWtTj6A4rZ_KpoHWnOw0fY52jCwHN_IIWkMeuwDT9SWCApZrSPNJhqF47MhJtiHgS-F-plqOGZSlto-JozRBenBmR9Jcn0ZegORnSNvb1IuNuHnhgr6LXILjOI-gEU0BkQFzQjEX3cbGwHQtn-hWPEZNy35va4_420lwIwFptbpHr7W-pIW79GIpCknlEGxZKVU1KHCcguSYbOKFUUJZKJJoxvPhbPMs5jmBEu0z4yzpRlemitbIuC-9N4gvxpmQ-Zn0a3IabbsvgoX74Mq8pB1svlpibJrBQskEIBaZLB6ZY10=w529-h939-no?authuser=0')
             
             embed.set_footer(text='Sei la footer')
 
-            embed.add_field(name='nome do field', value='valor dessa poha', inline=False)
+            embed.add_field(name='nome do field', value='valor dessa poha false', inline=False)
             embed.add_field(name='nome do field', value='valor dessa poha', inline=True)
             embed.add_field(name='nome do field', value='valor dessa poha', inline=True)
             
