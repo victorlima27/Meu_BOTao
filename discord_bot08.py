@@ -16,6 +16,7 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
+        print('Version 1.1.29')
         print(datetime.datetime.now())
 
     async def on_message(self, message):
@@ -49,23 +50,23 @@ class MyClient(discord.Client):
             
             await message.channel.send(embed = embed)
 
-        if message.content.lower().startswith('!help'):
-            await message.channel.send('''
-😀😀😀Obrigado por ter me convidado!😀😀😀
+#         if message.content.lower().startswith('!help'):
+#             await message.channel.send('''
+# 😀😀😀Obrigado por ter me convidado!😀😀😀
 
-🤓 Aqui vai um pouco das dicas para usar o Meu_Botão 🤓
+# 🤓 Aqui vai um pouco das dicas para usar o Meu_Botão 🤓
 
-#############           COMANDOS            #############   
-👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌
+# #############           COMANDOS            #############   
+# 👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌
 
-👏!oi - Comprimentar
-👏!memepf - Imagens/gif, de memes variados
-👏!net - Cálculo da velocidade de internet (obs.:Por enquanto só do hospedeiro)
-👏fernando - Salve para o professor!
-👏motiva - Frases Motivacionais
+# 👏!oi - Comprimentar
+# 👏!memepf - Imagens/gif, de memes variados
+# 👏!net - Cálculo da velocidade de internet (obs.:Por enquanto só do hospedeiro)
+# 👏fernando - Salve para o professor!
+# 👏motiva - Frases Motivacionais
 
-Aproveite!
-''')
+# Aproveite!
+# ''')
 
         if message.content.lower().startswith('oi'):
             if message.author.id == 251875810959556609:
