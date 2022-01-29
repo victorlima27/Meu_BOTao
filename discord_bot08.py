@@ -2,9 +2,11 @@ import discord
 import os
 import asyncio
 import random
+from discord import file
 from discord.ext import commands
 import speedtest
 import datetime
+# import youtube_dl
 
 client = commands.Bot(command_prefix = "!", case_insensitive = True )
 
@@ -23,22 +25,27 @@ class MyClient(discord.Client):
 
         if message.content.lower().startswith('!ajuda'):
             embed = discord.Embed(
-                title = "Prazer eu sou o Bot do Victão!",
-                description = "Obrigado por me convidar para o seu servidor",
-                color = 11598249
+                title = "Prazer eu sou o Meu_BoTão! Filho do Victão!",
+                description = '''Estou aprendendo aos poucos mas já sei fazer isso aqui ó:''',
+                color = discord.Color.random()
             )
             
-            embed.set_author(name='Autor', icon_url='https://image.flaticon.com/icons/png/512/3563/3563395.png')
+            embed.set_author(name= f'Fala {message.author.name}, tudo beleza?!', icon_url= message.author.avatar_url)
 
             embed.set_thumbnail(url='https://w7.pngwing.com/pngs/996/981/png-transparent-osu-hearts-of-iron-iv-scp-foundation-reddit-video-game-mouth-smile-miscellaneous-game-people.png')
 
-            embed.set_image(url='https://lh3.googleusercontent.com/QaUbp93xTVKq7OZVrVXeba4qdualF75FckRjkF8iiXHviqQR4WhozPVXBrkbDizR09r5EDxuLLAnhivYI3ItynZpOW--iavJ_UbjkgAfATfGn0s_Dp2hJXPRjiLn89zgZU2ChjiepJElY0Z0J8h09mTMA1dXANtI5mwJIk29J5oCJ31fWEaLAVUe4_PnUSSIIXd1nupw-nr-FmWZfadYrq5jg6Pr7y2pS7Fnpgqu2TKDIzYPt0cHH70CG0k8OroDUgEEtHkUH9XXzKf_pPvkpBoFtan4WnKOIJZJhqWjU5iyl1NstIMUpjPIVNib57Y3fdGTAG-QgtPLApft5p_TGw_jZ5dmiYMZtMpHFUZKE9ohJi2vEgI71saaI_WCPYYm2CKb9y2cw-CwXTa-WwfsoB5e3xloAt8Lg9CnQ8SmUVWtTj6A4rZ_KpoHWnOw0fY52jCwHN_IIWkMeuwDT9SWCApZrSPNJhqF47MhJtiHgS-F-plqOGZSlto-JozRBenBmR9Jcn0ZegORnSNvb1IuNuHnhgr6LXILjOI-gEU0BkQFzQjEX3cbGwHQtn-hWPEZNy35va4_420lwIwFptbpHr7W-pIW79GIpCknlEGxZKVU1KHCcguSYbOKFUUJZKJJoxvPhbPMs5jmBEu0z4yzpRlemitbIuC-9N4gvxpmQ-Zn0a3IabbsvgoX74Mq8pB1svlpibJrBQskEIBaZLB6ZY10=w529-h939-no?authuser=0')
+            # embed.set_image(url='https://lh3.googleusercontent.com/TmjSvqmxPLt0rsP-sSDKuScKDI6_jwo3r1-WEhmlbdYxOrtOYQ0GUZ98wmdx2Y8QBEbQU2e24AweU_ddSiyIhsdRKcqCw0VwvKEC__KGT2A9VJDenLzKKcfrOzccZSgC7JY8xD5CYGqqAC2Zfj8wjyi1_yw2kXbgjy-li_uBagtH8Du-9GkDhZqdGDUM8K3IeiLQH4lrd9-ElKWMUwAysmZAKVtBrXFN5FRvcxOdEv3YlC1HT-r4coUUjKjOQkN2JNz0CKm-YHO9CqguPsGy2KILwNZimff-f_pLYV1vFA9F5_o8UeMCAFNtHHFBBOegJvXOaihUKvx_uP6GPFkqgT_DLanVNNMhDCiknxFqo-ga3lJs7qtD20L5xYTMpoN--ao9mk9nYgCRQRleR03CAXtcZ5uF__McjtZ4XpxB_0iylTQZLWXqHavMCwe05dc6zU0IbZl6KiT9N9kDDOWL7kQFzUm8Cz03y_jYLDjcPqzwXIpl1vsggzrLTRG6aOFGIlDDcO2eLMcICGnBmz9rPm-B-pHEp3473JA75VH0QwmnGo_h3kl1IyQE8uQOVNi9RA_cfqsltIUzyRqDkowIU1i7CR4TVnjSqQYuUULcMxbqdz8CV6KclvLtogdtVUWm6KHrfXsKMtCicsqivc9iHJdUZ6SnkbIVqIO5P5-SiHvHov4pMzkiwXbCgnZuxtMFY6HaAa6jBnPhq3_N7o_ohkL5=w288-h429-no?authuser=0')
             
-            embed.set_footer(text='Sei la footer')
+            # embed.set_footer(text='Foto do meu Papai Lindão')
 
-            embed.add_field(name='nome do field', value='valor dessa poha false', inline=False)
-            embed.add_field(name='nome do field', value='valor dessa poha', inline=True)
-            embed.add_field(name='nome do field', value='valor dessa poha', inline=True)
+            embed.add_field(name= 'Gosto de Comprimentar', value='- Diga oi no chat',  inline=False)
+            embed.add_field(name= 'Compartilho memes rs', value='- Diga !meme no chat',  inline=False)
+            #embed.add_field(name= 'Salve Professor Fernando', value='- Diga Fernando no chat',  inline=False)
+            embed.add_field(name= 'Sou Coach nas vagas horas', value='- Diga motiva no chat',  inline=False)
+            embed.add_field(name= 'Salve Professor Fernando', value='- Diga Fernando no chat',  inline=False)
+            embed.add_field(name= 'Descubro o que é o meu pai!', value='- Diga victao no chat',  inline=False)
+            
+            
             
             await message.channel.send(embed = embed)
 
@@ -60,45 +67,79 @@ class MyClient(discord.Client):
 Aproveite!
 ''')
 
-        if message.content.lower().startswith('!oi'):
+        if message.content.lower().startswith('oi'):
             if message.author.id == 251875810959556609:
                 await message.channel.send('Oi Papai Victão, tô Online!!!!')
+            elif message.author.id == 282859044593598464:
+                await message.channel.send('---')
             else:
-                await message.channel.send('Olá, tô online amigo!!!!')
+                await message.channel.send('Oi, Lidona')
 
 # O bot envia uma imagem png caso alguém digite !memepf.
-        if message.content.lower().startswith('!memepf'):
+        if message.content.lower().startswith('!meme'):
             escolha_me = random.randint(1,8)
             print(f'valor random do meme foi {escolha_me}')
 
             if escolha_me == 1:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme.png'))
             if escolha_me == 2:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme2.png'))
             if escolha_me == 3:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme3.png'))
             if escolha_me == 4:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme4.jpg'))
             if escolha_me == 5:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme5.png'))
             if escolha_me == 6:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme6.png'))
             if escolha_me == 7:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('meme7.png'))
             if escolha_me == 8:
-                await message.channel.send('É pra já meu chapa!')
+                await message.channel.send(f'É pra já {message.author.name}!')
                 await message.channel.send(file=discord.File('bomdia.gif'))
+
+# só falar bem da tia catarina
+        
+        if message.author.id == 402168333153337347:
+            frase_cat = random.randint(1,3)
+        
+            if frase_cat == 1:
+                    await message.channel.send('digam oi pra Tia Catarina ai caraiooo') 
+            
+            if frase_cat == 2:
+                    await message.channel.send('Ajoelhem perante a nossa ADM') 
+        
+            if frase_cat == 3:
+                    await message.channel.send('quem vai de ban hoje ?') 
+
+# só falar merda do nandinho
+
+        if message.author.id == 282859044593598464:
+            frase_nan = random.randint(1,3)
+            
+            if frase_nan == 1:
+                await message.channel.send('Caralho nandinho tu é muito chato')
+            
+            if frase_nan == 2:
+                await message.channel.send('Cala boca filho da puta')
+            
+            if frase_nan == 3:
+                await message.channel.send('Mano para de encher a poha do saco muleque')
+
 
 # Caso alguém insira a palavra exatamente como está escrita Fernando, ele responde a mensagem que pré-definimos.
         if message.content.lower().startswith('fernando'):
             await message.channel.send('Hey Big Boss! Notinha 10 para o grupo no Ava!.')
+
+        if message.content.lower().startswith('obrigado'):
+            await message.channel.send('Não tem de quê, amo vc amigo 💞')
 
 # Utilizamos a biblioteca Random para o bot assim que ele receber uma mensagem que contenha o "motiva" independente 
 # de ser maiusculo ou minusculo, ele nos responde com uma mensagem motivacional como pré-definimos e adiciona uma reação ao comentário.
@@ -147,7 +188,151 @@ Aproveite!
 
         if message.content.lower().startswith('ronaldo'):
             await message.channel.send('Primeiro que eu odeio esse cara, segundo q ele é um merda')
+        
+        if message.content.lower().startswith('eae'):
+            await message.channel.send('e ae meu brodi')
+        
+        if message.content.lower().startswith('meu botão' or 'meu botão'):
+            await message.channel.send('Oi amiguinhoooo')
+        
+        if message.content.lower().startswith('botao'):
+            await message.channel.send('Oi amiguinhoooo')
+        
+        if message.content.lower().startswith('catrina'):
+            await message.channel.send('Obrigado por me permetir aqui amiga AnaCatarina')
 
+        if message.content.lower().startswith('ctrina'):
+            await message.channel.send('Obrigado por me permetir aqui amiga AnaCatarina')
+        
+        if message.content.lower().startswith('quem'):
+            await message.channel.send('te esboga')
+        
+        if message.content.lower().startswith('n'):
+            await message.channel.send('Eu também não')
+        
+        if message.content.lower().startswith('eu'):
+            await message.channel.send('Eu não')
+        
+        if message.content.lower().startswith('k'):
+            await message.channel.send('hahahahahahhahahahahhaahaha de fuder')
+        
+        if message.content.lower().startswith('victao'):
+            await message.channel.send('Nada mais nada menos que o meu pai. Ele vem me ensinando muita coisa desde que eu nasci e quero muito aprender com vocês')
+
+        if message.content.lower().startswith('bolão'):
+            await message.channel.send('Você já viu o bolão do meu papai ? Pergunte a ele e desvende essa Magia')
+        
+        if message.content.lower().startswith('sexta'):
+            await message.channel.send('''Hoje é sexta feira, dia de bucetinha!!
+            🙊🙊🙊🙊🙊🙊🙊 ''')
+
+        if message.content.lower().startswith('shrek'):
+            embed = discord.Embed(
+                title = ":arrows_counterclockwise:",
+                color = discord.Color.red()
+            )
+            await message.channel.send(embed = embed)
+
+            embed = discord.Embed(
+                title = "...",
+                color = discord.Color.gold()
+            )
+            await message.channel.send(embed = embed)
+            
+            embed = discord.Embed(
+                title = "Processando!... :arrows_counterclockwise: ",
+                color = discord.Color.blue()
+            )
+            await message.channel.send(embed = embed)
+
+            embed = discord.Embed(
+                title = "...",
+                color = discord.Color.gold()
+            )
+            await message.channel.send(embed = embed)
+            
+            embed = discord.Embed(
+                title = ":arrows_counterclockwise:",
+                color = discord.Color.red()
+            )
+            await message.channel.send(embed = embed)
+
+            embed = discord.Embed(
+                title = "Parabéns Você acabou de Ganhar o Filme do Shrek 1,2,3,4 em apenas 1 Minuto! Free Grátiss!!!!!! Não é Vírus, pode confiar!!!",
+                color = discord.Color.green()
+            )
+            await message.channel.send(embed = embed)
+
+            file = discord.File("shrek.gif")
+            embed = discord.Embed(
+                title = ":arrow_forward: ",
+                color = discord.Color.green()
+            )
+            embed.set_image(url="attachment://shrek.gif")
+            await message.channel.send(embed = embed, file=file)
+            # await message.channel.send(file=discord.File('shrek.gif'))
+
+@client.command()
+async def play(ctx, url : str):
+    song_there = os.path.isfile("song.mp3")
+    try:
+        if song_there:
+            os.remove("song.mp3")
+    except PermissionError:
+        await ctx.send("Wait for the current playing music to end or use the 'stop' command")
+        return
+
+    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
+    await voiceChannel.connect()
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+    for file in os.listdir("./"):
+        if file.endswith(".mp3"):
+            os.rename(file, "song.mp3")
+    voice.play(discord.FFmpegPCMAudio("song.mp3"))
+
+
+@client.command()
+async def leave(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_connected():
+        await voice.disconnect()
+    else:
+        await ctx.send("The bot is not connected to a voice channel.")
+
+
+@client.command()
+async def pause(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_playing():
+        voice.pause()
+    else:
+        await ctx.send("Currently no audio is playing.")
+
+
+@client.command()
+async def resume(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_paused():
+        voice.resume()
+    else:
+        await ctx.send("The audio is not paused.")
+
+
+@client.command()
+async def stop(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    voice.stop()
 
 client = MyClient()
 #comando para rodar o bot de acordo com seu TOKEN
