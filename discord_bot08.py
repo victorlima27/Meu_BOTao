@@ -1,3 +1,4 @@
+from xmlrpc.client import DateTime
 import discord
 import os
 import asyncio
@@ -16,11 +17,28 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 1.1.29')
-        print(datetime.datetime.now())
+        print('Version 2.02.02')
+        y = datetime.datetime.now()
+        print(y.strftime("%T" " %A"))
+        while True:
+            if y.strftime("%A") == ("Friday"):
+                a = 1
+                
+                print("deucerto")
+                break 
+            else:
+                break
+        # if y.strftime("%A") == ("Monday"):
+        #     print("deucerto")
 
     async def on_message(self, message):
 # Para o bot não responder a nós mesmos
+        Ex = message.content.lower().startswith
+        Env_Msg = message.channel.send
+        
+        if Ex('teste'):
+            await message.channel.send('Ok testa ai')
+
         if message.author == self.user:
             return
 
@@ -67,6 +85,23 @@ class MyClient(discord.Client):
 
 # Aproveite!
 # ''')
+
+#Tentar startar ele toda sexta sozinho
+
+        # if message.content.lower().startswith('t'):
+        #     x = datetime.datetime.now()
+        #     print(x.strftime("%T"))
+        
+        # while True:
+        #     if x.strftime("%A") == ("Monday"):
+        #         print("deucerto")
+        #     else:
+        #         print("1")
+        #         break
+
+        # message.content.lower().startswith('t'):
+            # print(x.strftime("%T") and x.)
+            # print(x.ctime())
 
         if message.content.lower().startswith('oi'):
             if message.author.id == 251875810959556609:
@@ -139,8 +174,8 @@ class MyClient(discord.Client):
         if message.content.lower().startswith('fernando'):
             await message.channel.send('Hey Big Boss! Notinha 10 para o grupo no Ava!.')
 
-        if message.content.lower().startswith('obrigado'):
-            await message.channel.send('Não tem de quê, amo vc amigo 💞')
+        # if message.content.lower().startswith('obrigado')or('obrigada'):
+        #     await message.channel.send('Não tem de quê, amo vc amigo 💞')
 
 # Utilizamos a biblioteca Random para o bot assim que ele receber uma mensagem que contenha o "motiva" independente 
 # de ser maiusculo ou minusculo, ele nos responde com uma mensagem motivacional como pré-definimos e adiciona uma reação ao comentário.
@@ -193,18 +228,19 @@ class MyClient(discord.Client):
         if message.content.lower().startswith('eae'):
             await message.channel.send('e ae meu brodi')
         
-        if message.content.lower().startswith('meu botão' or 'meu botão'):
+        if Ex('meu botão') or Ex('meu botao'):
             await message.channel.send('Oi amiguinhoooo')
         
-        if message.content.lower().startswith('botao'):
-            await message.channel.send('Oi amiguinhoooo')
+        if Ex('botao') or Ex('botão'):
+            await message.channel.send('que te come atrás do portão')
         
-        if message.content.lower().startswith('catrina'):
-            await message.channel.send('Obrigado por me permetir aqui amiga AnaCatarina')
-
-        if message.content.lower().startswith('ctrina'):
+        if Ex('catrina') or Ex('ctrina'):
             await message.channel.send('Obrigado por me permetir aqui amiga AnaCatarina')
         
+        if Ex('o pai'):
+            await Env_Msg('O Pai ta Forte!!!')
+            await Env_Msg(file=discord.File('hotmart.mp4'))
+          
         if message.content.lower().startswith('quem'):
             await message.channel.send('te esboga')
         
@@ -217,15 +253,18 @@ class MyClient(discord.Client):
         if message.content.lower().startswith('k'):
             await message.channel.send('hahahahahahhahahahahhaahaha de fuder')
         
-        if message.content.lower().startswith('victao'):
-            await message.channel.send('Nada mais nada menos que o meu pai. Ele vem me ensinando muita coisa desde que eu nasci e quero muito aprender com vocês')
+        if Ex('victao') or Ex('victão') or Ex('victor'):
+            await message.channel.send('Nada mais nada menos que o meu pai. O mais brabo de vitória e adjacências, o cara pika')
 
         if message.content.lower().startswith('bolão'):
             await message.channel.send('Você já viu o bolão do meu papai ? Pergunte a ele e desvende essa Magia')
         
         if message.content.lower().startswith('sexta'):
-            await message.channel.send('''Hoje é sexta feira, dia de bucetinha!!
-            🙊🙊🙊🙊🙊🙊🙊 ''')
+            await message.channel.send('Hoje é sexta feira, dia de bucetinha!!')
+            await Env_Msg(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
+            # await Env_Msg(file=discord.File('mbuc.webp'))
+            await Env_Msg(file=discord.File('sexta.mp4'))
+            # await Env_Msg(file=discord.File('mbuc.webp')) 
 
         if message.content.lower().startswith('shrek'):
             embed = discord.Embed(
