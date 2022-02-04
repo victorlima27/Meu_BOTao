@@ -20,7 +20,7 @@ class MyClient(discord.Client):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
         print('Version 2.02.04')
         y = datetime.datetime.now()
-        locale.setlocale(locale.LC_ALL, 'portuguese_brazil')
+        # locale.setlocale(locale.LC_ALL, '')
         print(y.strftime("%T" " %A"))
         while True:
             if y.strftime("%A") == ("Friday"):
