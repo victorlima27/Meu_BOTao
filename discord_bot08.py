@@ -17,7 +17,7 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 2.02.02')
+        print('Version 2.02.03')
         y = datetime.datetime.now()
         print(y.strftime("%T" " %A"))
         while True:
@@ -33,6 +33,7 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
 # Para o bot não responder a nós mesmos
+        x = datetime.datetime.now()
         Ex = message.content.lower().startswith
         Env_Msg = message.channel.send
         
@@ -259,12 +260,15 @@ class MyClient(discord.Client):
         if message.content.lower().startswith('bolão'):
             await message.channel.send('Você já viu o bolão do meu papai ? Pergunte a ele e desvende essa Magia')
         
-        if message.content.lower().startswith('sexta'):
-            await message.channel.send('Hoje é sexta feira, dia de bucetinha!!')
-            await Env_Msg(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
-            # await Env_Msg(file=discord.File('mbuc.webp'))
-            await Env_Msg(file=discord.File('sexta.mp4'))
-            # await Env_Msg(file=discord.File('mbuc.webp')) 
+        if Ex('sexta') or Ex("sextou"):
+            if x.strftime("%A") == ("Friday"):
+                await message.channel.send('Hoje é sexta feira, dia de bucetinha!!')
+                await Env_Msg(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
+                # await Env_Msg(file=discord.File('mbuc.webp'))
+                await Env_Msg(file=discord.File('sexta.mp4'))
+                # await Env_Msg(file=discord.File('mbuc.webp')) 
+            else:
+                await Env_Msg("Sexta não chegou ainda não mongoloide")
 
         if message.content.lower().startswith('shrek'):
             embed = discord.Embed(
