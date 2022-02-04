@@ -263,7 +263,7 @@ class MyClient(discord.Client):
             await message.channel.send('Você já viu o bolão do meu papai ? Pergunte a ele e desvende essa Magia')
         
         if Ex('sexta') or Ex("sextou"):
-            if x.strftime("%A") == ("sexta-feira"):
+            if x.strftime("%A") == ("Friday"):
                 await message.channel.send('Hoje é sexta feira, dia de bucetinha!!')
                 await Env_Msg(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
                 # await Env_Msg(file=discord.File('mbuc.webp'))
