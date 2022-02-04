@@ -7,6 +7,7 @@ from discord import file
 from discord.ext import commands
 import speedtest
 import datetime
+import locale
 # import youtube_dl
 
 client = commands.Bot(command_prefix = "!", case_insensitive = True )
@@ -19,6 +20,7 @@ class MyClient(discord.Client):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
         print('Version 2.02.03')
         y = datetime.datetime.now()
+        locale.setlocale(locale.LC_ALL, 'Portuguese_Brazil.1252')
         print(y.strftime("%T" " %A"))
         while True:
             if y.strftime("%A") == ("Friday"):
@@ -261,7 +263,7 @@ class MyClient(discord.Client):
             await message.channel.send('Você já viu o bolão do meu papai ? Pergunte a ele e desvende essa Magia')
         
         if Ex('sexta') or Ex("sextou"):
-            if x.strftime("%A") == ("Friday"):
+            if x.strftime("%A") == ("sexta-feira"):
                 await message.channel.send('Hoje é sexta feira, dia de bucetinha!!')
                 await Env_Msg(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
                 # await Env_Msg(file=discord.File('mbuc.webp'))
