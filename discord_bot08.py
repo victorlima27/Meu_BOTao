@@ -18,7 +18,8 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 2.02.04')
+        print('Version 2.v16')
+        print('Dia 04/02/2022 21:50')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         print(y.strftime("%T" " %A"))
@@ -265,6 +266,7 @@ class MyClient(discord.Client):
         if Ex('sexta') or Ex("sextou"):
             if x.strftime("%A") == ("Friday"):
                 await message.channel.send('Hoje é sexta feira, dia de bucetinha!!')
+                await message.channel.send('@everyone')
                 await Env_Msg(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
                 # await Env_Msg(file=discord.File('mbuc.webp'))
                 await Env_Msg(file=discord.File('sexta.mp4'))
