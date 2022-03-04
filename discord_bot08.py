@@ -22,7 +22,8 @@ class MyClient(discord.Client):
         print('Dia 04/02/2022 21:50')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
-        print(y.strftime("%T" " %A"))
+        z = y.strftime("%H")
+        print(int(z)+3)
         while True:
             if y.strftime("%A") == ("Friday"):
                 a = 1
@@ -246,15 +247,15 @@ class MyClient(discord.Client):
             await Env_Msg(file=discord.File('hotmart.mp4'))
           
         if message.content.lower().startswith('quem'):
-            await message.channel.send('te esboga')
+            await message.channel.send('te pega?')
         
-        if message.content.lower().startswith('n'):
+        if message.content.lower().startswith('nao') or Ex('no'):
             await message.channel.send('Eu também não')
         
         if message.content.lower().startswith('eu'):
             await message.channel.send('Eu não')
         
-        if message.content.lower().startswith('k'):
+        if message.content.lower().startswith('kkk') or Ex('haha'):
             await message.channel.send('hahahahahahhahahahahhaahaha de fuder')
         
         if Ex('victao') or Ex('victão') or Ex('victor'):
