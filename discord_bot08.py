@@ -18,21 +18,17 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 2.v16')
-        print('Dia 04/02/2022 21:50')
+        print('Version 2.v19')
+        print('Dia 03/03/2022 21:50')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
-        print(int(z)+3)
+        print(int(z)-3)
         while True:
-            if y.strftime("%A") == ("Friday"):
-                a = 1
-                
+            if int(z)-3 == 18 and y.strftime("%A") == ("Thursday"):
                 print("deucerto")
                 break 
-            else:
-                break
-        # if y.strftime("%A") == ("Monday"):
+            # if y.strftime("%A") == ("Monday"):
         #     print("deucerto")
 
     async def on_message(self, message):
