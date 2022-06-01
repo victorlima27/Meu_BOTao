@@ -18,7 +18,7 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 2.v19')
+        print('Version 2.v21')
         print('Dia 03/03/2022 21:50')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
