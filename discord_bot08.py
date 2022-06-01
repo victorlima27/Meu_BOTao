@@ -1,13 +1,13 @@
-from xmlrpc.client import DateTime
+# from xmlrpc.client import DateTime
 import discord
-import os
-import asyncio
+# import os
+# import asyncio
 import random
 from discord import file
 from discord.ext import commands
 import speedtest
 import datetime
-import locale
+# import locale
 # import youtube_dl
 
 client = commands.Bot(command_prefix = "!", case_insensitive = True )
@@ -18,7 +18,7 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 2.v21')
+        print('Version 2.v22')
         print('Dia 03/03/2022 21:50')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
