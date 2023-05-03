@@ -10,8 +10,6 @@ import datetime
 # import locale
 # import youtube_dl
 
-client = commands.Bot(command_prefix = "!", case_insensitive = True )
-
 reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯','🙏','💪']
 
 # Primeira comunicação com o Bot - como a comunicação é assíncrona 
@@ -24,15 +22,16 @@ class MyClient(discord.Client):
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
         print(int(z)-3)
-        while True:
-            if int(z)-3 == 18 and y.strftime("%A") == ("Thursday"):
-                print("deucerto")
-                break 
-            # if y.strftime("%A") == ("Monday"):
-        #     print("deucerto")
+        # while True:
+        #     if int(z)-3 == 18 and y.strftime("%A") == ("Thursday"):
+        #         print("deucerto")
+        #         break 
+        #     # if y.strftime("%A") == ("Monday"):
+        # #     print("deucerto")
 
     async def on_message(self, message):
-# Para o bot não responder a nós mesmos
+        #Para o bot não responder a nós mesmos
+ 
         x = datetime.datetime.now()
         Ex = message.content.lower().startswith
         Env_Msg = message.channel.send
@@ -50,7 +49,7 @@ class MyClient(discord.Client):
                 color = discord.Color.random()
             )
             
-            embed.set_author(name= f'Fala {message.author.name}, tudo beleza?!', icon_url= message.author.avatar_url)
+            embed.set_author(name= f'Fala {message.author.name}, tudo beleza?!', icon_url= message.author.avatar)
 
             embed.set_thumbnail(url='https://w7.pngwing.com/pngs/996/981/png-transparent-osu-hearts-of-iron-iv-scp-foundation-reddit-video-game-mouth-smile-miscellaneous-game-people.png')
 
@@ -378,8 +377,13 @@ class MyClient(discord.Client):
 # async def stop(ctx):
 #     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 #     voice.stop()
+intents = discord.Intents.default()
+intents.message_content = True
 
-client = MyClient()
+client = commands.Bot(command_prefix = "!", case_insensitive = True, intents=intents)
+
+
+client = MyClient(intents=intents)
 #comando para rodar o bot de acordo com seu TOKEN
 client.run('ODU5MTQ4NDQxNjYyMTI4MTU4.YNoeVg.hQtlx3VALkYe7ynbR7CHjWi1DGw')
 
