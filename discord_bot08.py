@@ -1,12 +1,15 @@
 # from xmlrpc.client import DateTime
 import discord
-# import os
+import os
 # import asyncio
 import random
 from discord import file
 from discord.ext import commands
 import speedtest
 import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 # import locale
 # import youtube_dl
 
@@ -16,12 +19,13 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
-        print('Version 2.v22')
-        print('Dia 03/03/2022 21:50')
+        print('Version 3.v03')
+        print('Dia 03/05/2023 09:05')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
         print(int(z)-3)
+        
         # while True:
         #     if int(z)-3 == 18 and y.strftime("%A") == ("Thursday"):
         #         print("deucerto")
@@ -110,8 +114,10 @@ class MyClient(discord.Client):
                 await message.channel.send('---')
             else:
                 await message.channel.send('Oi, Lidona')
-
+        if message.content.lower().startswith('olha quem voltou'):
+            await message.channel.send('Eu sento rebolando chamando o seu nome')
 # O bot envia uma imagem png caso alguém digite !memepf.
+
         if message.content.lower().startswith('!meme'):
             escolha_me = random.randint(1,8)
             print(f'valor random do meme foi {escolha_me}')
@@ -314,7 +320,7 @@ class MyClient(discord.Client):
             )
             embed.set_image(url="attachment://shrek.gif")
             await message.channel.send(embed = embed, file=file)
-            # await message.channel.send(file=discord.File('shrek.gif'))
+            await message.channel.send(file=discord.File('shrek.gif'))
 
 # @client.command()
 # async def play(ctx, url : str):
@@ -377,6 +383,7 @@ class MyClient(discord.Client):
 # async def stop(ctx):
 #     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 #     voice.stop()
+
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -385,5 +392,5 @@ client = commands.Bot(command_prefix = "!", case_insensitive = True, intents=int
 
 client = MyClient(intents=intents)
 #comando para rodar o bot de acordo com seu TOKEN
-client.run('ODU5MTQ4NDQxNjYyMTI4MTU4.YNoeVg.hQtlx3VALkYe7ynbR7CHjWi1DGw')
+client.run(str(os.getenv('client.run')))
 
