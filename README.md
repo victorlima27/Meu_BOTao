@@ -5,9 +5,11 @@
 
 Criação de um **BOT** de **Discord** desenvolvido em cima da biblioteca discord.py
 
+
 <p align="center">
 <img src="https://github.com/victorlima27/Meu_BOTao/assets/86923609/98d96b72-c2b3-4a5c-9a6e-63ce3f7f08e5"/>
 </p>
+
 
 <h4 align="center"> 
     🚧  Projeto em desenvolvimento  🚧
