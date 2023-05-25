@@ -17,7 +17,7 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 
 
 @tasks.loop(hours=24)
-async def send_greetings():
+async def bomdia():
     print('entrei')
     now = datetime.datetime.now()
     print(now.hour)
@@ -33,12 +33,13 @@ async def send_greetings():
                 user = await client.fetch_user(p)
                 await channel.send(f'Bom dia! {user.mention}')
 
-@tasks.loop(hours=24)
+@tasks.loop(minutes=1)
 async def TESTE():
     print('entrei')
     now = datetime.datetime.now()
-    print(now.hour)
-    if now.weekday() == 3 and now.hour == 11:  # 4 representa a sexta-feira (segunda-feira é 0)
+    # print(now.hour)
+    # now.weekday() == 3 
+    if now.hour == 11 and now.minute == 14:  # 4 representa a sexta-feira (segunda-feira é 0)
         # channels = [689903332877140008,860333711635775518 ]
         channels = [860333711635775518]
         users = [251875810959556609]
@@ -48,7 +49,9 @@ async def TESTE():
                 channel = client.get_channel(i)
                 user = await client.fetch_user(p)
                 await channel.send(f"Bom dia! {user.mention}")
-
+    else:
+        print('mas não é o horário correto')
+    
 # Primeira comunicação com o Bot - como a comunicação é assíncrona
 class MyClient(discord.Client):
 
@@ -59,14 +62,9 @@ class MyClient(discord.Client):
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
-        send_greetings.start()
+        bomdia.start()
+        # TESTE.start()
 
-        # while True:
-        #     if int(z)-3 == 18 and y.strftime("%A") == ("Thursday"):
-        #         print("deucerto")
-        #         break
-        #     # if y.strftime("%A") == ("Monday"):
-        # #     print("deucerto")
 
     async def on_message(self, message):
         #Para o bot não responder a nós mesmos
