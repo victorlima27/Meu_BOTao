@@ -23,10 +23,29 @@ Criação de um **BOT** de **Discord** desenvolvido em cima da biblioteca discor
 
 -`Respostas aleatórias`: Responde algo que esteja programado no código
 
+# Instalação
+
+ - Faça o clone do repositório:
 ```python
 git clone https://github.com/victorlima27/Meu_BOTao.git
+```
+- Instale o virtualenv e a pastas env:
+```python
 pip install -m virtualenv venv
-pip install -r requeriments.txt
+```
+- Ative o virtualenv:
+```python
 .\venv\Scripts\activate
+```
+- Agora instale todos requerimentos do projeto:
+```python
+pip install -r requeriments.txt
+```
+- Após todos esses passos basta somente iniciar o bot:
+```python
 python .\discord
 ```
+
+# Observações
+
+- Vale ressaltar que você deve copiar o arquivo .env.example e colar na base do diretório com o nome .env e adicionar o token do seu bot!
