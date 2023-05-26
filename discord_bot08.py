@@ -32,6 +32,18 @@ async def bomdia():
                 channel = client.get_channel(i)
                 user = await client.fetch_user(p)
                 await channel.send(f'Bom dia! {user.mention}')
+@tasks.loop(hours=24)
+async def sexta():
+    now = datetime.datetime.now()
+    if now.weekday() == 4:  # 4 representa a sexta-feira (segunda-feira é 0)
+        # channels = [1032282639433998410]
+        channels = [876487244834308097]
+        for i in channels :
+            channel = client.get_channel(i)
+            await channel.send('Hoje é sexta feira, dia de bucetinha!!')
+            await channel.send('@everyone')
+            await channel.send(":speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil: :speak_no_evil::speak_no_evil::speak_no_evil::speak_no_evil:")
+            await channel.send(file=discord.File('sexta.mp4'))
 
 @tasks.loop(minutes=1)
 async def TESTE():
