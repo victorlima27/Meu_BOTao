@@ -43,7 +43,7 @@ pip install -r requeriments.txt
 ```
 - Após todos esses passos basta somente iniciar o bot:
 ```python
-python .\discord
+python .\discord.py
 ```
 
 # Observações
