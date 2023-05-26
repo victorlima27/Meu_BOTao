@@ -7,6 +7,7 @@ import schedule
 import random
 from discord import file
 from discord.ext import commands, tasks
+from dateutil.relativedelta import relativedelta
 import speedtest
 import datetime
 from dotenv import load_dotenv
@@ -25,7 +26,6 @@ async def bomdia():
         # channels = [689903332877140008,860333711635775518 ]
         channels = [1032282639433998410]
         person = [239781637812912128]
-
         # channel_id = 860333711635775518  # Substitua pelo ID do canal onde você deseja enviar a mensagem
         for i in channels :
             for p in person:
@@ -38,7 +38,7 @@ async def sexta():
     print('sexta')
     now = datetime.datetime.now()
     if now.weekday() == 4:  # 4 representa a sexta-feira (segunda-feira é 0)
-        channels = [1032282639433998410]
+        channels = [1032282639433998410,689903332877140008]
         # channels = [876487244834308097,1032282639433998410]
         for i in channels :
             channel = client.get_channel(i)
@@ -76,9 +76,10 @@ class MyClient(discord.Client):
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
+        
         # bomdia.start()
         # TESTE.start()
-        sexta.start()
+        # sexta.start()
 
 
     async def on_message(self, message):
@@ -232,8 +233,35 @@ class MyClient(discord.Client):
             if escolha_m == 9:
                 await message.channel.send('Não importa o que você decidiu. O que importa é que isso te faz feliz.')
                 await message.add_reaction(f'{reacoes[reacao]}')
+        
+        if Ex ('faesa'):
+            dthr = datetime.datetime.now()
+            mes = dthr.strftime('%m')
+            ano = dthr.strftime('%Y')
+            vencimento_faesa = datetime.datetime.strptime(f'05/{mes}/{ano}','%d/%m/%Y')
+            print(vencimento_faesa)
+            diferenca_dias = ((dthr - vencimento_faesa).days)
+            if diferenca_dias > 0:
+                mes_seguinte = (dthr + relativedelta(months=1)).strftime('%m')
+                vencimento_faesa = datetime.datetime.strptime(f'05/{mes_seguinte}/{ano}','%d/%m/%Y')
+                diferenca_dias = (abs(dthr - vencimento_faesa).days)
+                await message.channel.send(f'Fala {message.author.name}!')
+                await message.channel.send(f'O vencimento da fatura é só no proximo mês. Faltam **{diferenca_dias} dias**, fica ligado doidão')
+            else:
+                await message.channel.send(f'Oi meu chapa, {message.author.name}!')
+                await message.channel.send(f'TA CHEGANDO O DIA FILHÃÃÃÃÃOOO')
+                await message.channel.send(f'Você tem só **{diferenca_dias} dias** pra arrumar essa bagatela')
+                
+                
 
-        # O bot faz o calculo aproximado da velocidade de internet, mas conseguimos implantar apenas para o calculo da velocidade do Host do bot.
+            # dthr = datetime.datetime.now
+            # mes = dthr.strftime('%m')
+            # ano = dthr.strftime('%y')
+            # vencimento_faesa = (f'05/{mes}/{ano}')
+            # dt_e_hr = dthr.strftime('%d/%m/%Y')
+            # # mes_seguinte = (hora_agora + relativedelta(months=1)).strftime('%m/%Y')
+            # await message.channel.send('Faesa e Fáculdade tem o mesmo nome mas o nome Fáculdade é maiúsculo.')        # O bot faz o calculo aproximado da velocidade de internet, mas conseguimos implantar apenas para o calculo da velocidade do Host do bot.
+        
         if message.content.lower().startswith('!net'):
             await message.channel.send('Por favor Aguarde! Estamos calculando sua velocidade!😮‍💨')
             test_vel = speedtest.Speedtest()

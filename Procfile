@@ -1,1 +1,1 @@
-discord_bot: python "discord_bot08.py"
+discord_bot: python "discord_bot.py"
