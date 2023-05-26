@@ -32,6 +32,7 @@ async def bomdia():
                 channel = client.get_channel(i)
                 user = await client.fetch_user(p)
                 await channel.send(f'Bom dia! {user.mention}')
+
 @tasks.loop(hours=24)
 async def sexta():
     print('sexta')
@@ -71,12 +72,13 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
         print('Version 3.v04')
-        print('Dia 25/05/2023 08:45')
+        print('Dia 26/05/2023 08:20')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
-        bomdia.start()
+        # bomdia.start()
         # TESTE.start()
+        sexta.start()
 
 
     async def on_message(self, message):
