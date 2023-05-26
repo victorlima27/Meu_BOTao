@@ -38,8 +38,8 @@ async def sexta():
     print('sexta')
     now = datetime.datetime.now()
     if now.weekday() == 4:  # 4 representa a sexta-feira (segunda-feira é 0)
-        # channels = [1032282639433998410]
-        channels = [876487244834308097]
+        channels = [1032282639433998410]
+        # channels = [876487244834308097,1032282639433998410]
         for i in channels :
             channel = client.get_channel(i)
             await channel.send('Hoje é sexta feira, dia de bucetinha!!')
