@@ -17,12 +17,16 @@ Criação de um **BOT** de **Discord** desenvolvido em cima da biblioteca discor
 
 # 🔨 Funcionalidades do projeto
 
--`Mensagens motivacionais`: Envia mensagens
+-`Mensagens motivacionais`: Envia mensagens com frases motivacionais
 
--`Funcionalidade 2`: descrição da funcionalidade 2
+-`Tasks programadas 24h em 24h`: Permite a criação de tarefas persolnalizadas
 
--`Funcionalidade 3`: descrição da funcionalidade 3
+-`Respostas aleatórias`: Responde algo que esteja programado no código
 
 ```python
-pip install virtualenv
+git clone https://github.com/victorlima27/Meu_BOTao.git
+pip install -m virtualenv venv
+pip install -r requeriments.txt
+.\venv\Scripts\activate
+python .\discord
 ```
