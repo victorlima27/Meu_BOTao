@@ -72,7 +72,7 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
         print('Version 3.v04')
-        print('Dia 26/05/2023 08:20')
+        print('Dia 26/05/2023 14:41')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
