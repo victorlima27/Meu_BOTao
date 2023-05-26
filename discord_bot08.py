@@ -34,6 +34,7 @@ async def bomdia():
                 await channel.send(f'Bom dia! {user.mention}')
 @tasks.loop(hours=24)
 async def sexta():
+    print('sexta')
     now = datetime.datetime.now()
     if now.weekday() == 4:  # 4 representa a sexta-feira (segunda-feira é 0)
         # channels = [1032282639433998410]
