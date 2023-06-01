@@ -34,12 +34,24 @@ async def bomdia():
                 await channel.send(f'Bom dia! {user.mention}')
 
 @tasks.loop(hours=24)
+async def faesa():
+    now = datetime.datetime.now()
+    print('Faesa rodando às', now.hour)
+    if now.day == 5:  # 4 representa a sexta-feira (segunda-feira é 0)
+        channels = [689903332877140008]
+        person = [251875810959556609,697250521442025573,841083708253667379,647493381454561280,369229764801855498,322514761340157954]
+        for i in channels :
+            for p in person:
+                channel = client.get_channel(i)
+                user = await client.fetch_user(p)
+                await channel.send(f'Bom dia! {user.mention}')
+
+@tasks.loop(hours=24)
 async def sexta():
     print('sexta')
     now = datetime.datetime.now()
     if now.weekday() == 4:  # 4 representa a sexta-feira (segunda-feira é 0)
-        channels = [1032282639433998410,689903332877140008]
-        # channels = [876487244834308097,1032282639433998410]
+        channels = [1032282639433998410,689903332877140008,859956915425640448]
         for i in channels :
             channel = client.get_channel(i)
             await channel.send('Hoje é sexta feira, dia de bucetinha!!')
@@ -72,14 +84,14 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
         print('Version 3.v04')
-        print('Dia 26/05/2023 14:41')
+        print('Dia 01/06/2023 08:07')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
         
         # bomdia.start()
         # TESTE.start()
-        # sexta.start()
+        sexta.start()
 
 
     async def on_message(self, message):
@@ -234,7 +246,7 @@ class MyClient(discord.Client):
                 await message.channel.send('Não importa o que você decidiu. O que importa é que isso te faz feliz.')
                 await message.add_reaction(f'{reacoes[reacao]}')
         
-        if Ex ('faesa'):
+        if message.content.lower('faesa'):
             dthr = datetime.datetime.now()
             mes = dthr.strftime('%m')
             ano = dthr.strftime('%Y')
@@ -250,7 +262,7 @@ class MyClient(discord.Client):
             else:
                 await message.channel.send(f'Oi meu chapa, {message.author.name}!')
                 await message.channel.send(f'TA CHEGANDO O DIA FILHÃÃÃÃÃOOO')
-                await message.channel.send(f'Você tem só **{diferenca_dias} dias** pra arrumar essa bagatela')
+                await message.channel.send(f'Você tem só **{abs(diferenca_dias)} dias** pra arrumar essa bagatela')
                 
                 
 
@@ -372,3 +384,6 @@ client = commands.Bot(command_prefix = "!", case_insensitive = True, intents=int
 client = MyClient(intents=intents)
 #comando para rodar o bot de acordo com seu TOKEN
 client.run(str(os.getenv('client.run')))
+
+#LOWER SEM NADA
+
