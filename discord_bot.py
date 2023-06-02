@@ -17,40 +17,58 @@ load_dotenv()
 reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯','🙏','💪']
 
 
-@tasks.loop(hours=24)
-async def bomdia():
-    print('entrei')
-    now = datetime.datetime.now()
-    print(now.hour)
-    if now.weekday() == 3 and now.hour == 10:  # 4 representa a sexta-feira (segunda-feira é 0)
-        # channels = [689903332877140008,860333711635775518 ]
-        channels = [1032282639433998410]
-        person = [239781637812912128]
-        # channel_id = 860333711635775518  # Substitua pelo ID do canal onde você deseja enviar a mensagem
-        for i in channels :
-            for p in person:
-                channel = client.get_channel(i)
-                user = await client.fetch_user(p)
-                await channel.send(f'Bom dia! {user.mention}')
+# @tasks.loop(hours=24)
+# async def bomdia():
+#     print('entrei')
+#     now = datetime.datetime.now()
+#     print(now.hour)
+#     if now.weekday() == 3 and now.hour == 10:  # 4 representa a sexta-feira (segunda-feira é 0)
+#         # channels = [689903332877140008,860333711635775518 ]
+#         channels = [1032282639433998410]
+#         person = [239781637812912128]
+#         # channel_id = 860333711635775518  # Substitua pelo ID do canal onde você deseja enviar a mensagem
+#         for i in channels :
+#             for p in person:
+#                 channel = client.get_channel(i)
+#                 user = await client.fetch_user(p)
+#                 await channel.send(f'Bom dia! {user.mention}')
 
 @tasks.loop(hours=24)
 async def faesa():
     now = datetime.datetime.now()
-    print('Faesa rodando às', now.hour)
-    if now.day == 5:  # 4 representa a sexta-feira (segunda-feira é 0)
+    print('Faesa rodando às', now.hour, 'Dia', now.day)
+    if now.day == 5:  # representa o dia
         channels = [689903332877140008]
-        person = [251875810959556609,697250521442025573,841083708253667379,647493381454561280,369229764801855498,322514761340157954]
+        victao = await client.fetch_user(251875810959556609)
+        breno = await client.fetch_user(371471762640338946)
+        lg = await client.fetch_user(487074262788866070)
+        Amendoas = await client.fetch_user(322514761340157954)
+        Amendoas2 = await client.fetch_user(841083708253667379)
+        grazy = await client.fetch_user(697250521442025573)
+        remix = await client.fetch_user(647493381454561280)
+        gustavo = await client.fetch_user(369229764801855498)
         for i in channels :
-            for p in person:
                 channel = client.get_channel(i)
-                user = await client.fetch_user(p)
-                await channel.send(f'Bom dia! {user.mention}')
+                await channel.send(f'**ATENÇÃO**')
+                await channel.send(f':trophy: **PRESTE BEM ATENÇÃO** :trophy: \n{victao.mention,breno.mention,lg.mention,Amendoas.mention,Amendoas2.mention,grazy.mention,remix.mention,gustavo.mention}')
+                await channel.send(f'**HOJE É O GRANDE DIA :moneybag: :books:**')
+                
+    elif 1 <= now.day <= 4:
+        channels = [689903332877140008,860333711635775518]
+        for i in channels :
+                channel = client.get_channel(i)
+                await channel.send(f'**Chamando todos Faesanos**:robot:!\n**Chamando todos Faesanos**:robot:!')
+                await channel.send(file=discord.File('faesanos.mp3'))
+                vencimento_faesa = datetime.datetime.strptime(f'05/{now.month}/{now.year}','%d/%m/%Y')
+                print(vencimento_faesa)
+                diferenca_dias = ((now - vencimento_faesa).days)
+                await channel.send(f'**FALTAM APENAS {abs(diferenca_dias)} DIAS PARA O VENCIMENTO**') 
 
 @tasks.loop(hours=24)
 async def sexta():
-    print('sexta')
+    # print('sexta')
     now = datetime.datetime.now()
-    if now.weekday() == 4:  # 4 representa a sexta-feira (segunda-feira é 0)
+    if now.weekday() == 4 and now.day != 2:  # 4 representa a sexta-feira (segunda-feira é 0)
         channels = [1032282639433998410,689903332877140008,859956915425640448]
         for i in channels :
             channel = client.get_channel(i)
@@ -92,6 +110,7 @@ class MyClient(discord.Client):
         # bomdia.start()
         # TESTE.start()
         sexta.start()
+        faesa.start()
 
 
     async def on_message(self, message):
@@ -246,7 +265,7 @@ class MyClient(discord.Client):
                 await message.channel.send('Não importa o que você decidiu. O que importa é que isso te faz feliz.')
                 await message.add_reaction(f'{reacoes[reacao]}')
         
-        if message.content.lower('faesa'):
+        if 'faesa' in message.content.lower():
             dthr = datetime.datetime.now()
             mes = dthr.strftime('%m')
             ano = dthr.strftime('%Y')
@@ -256,7 +275,7 @@ class MyClient(discord.Client):
             if diferenca_dias > 0:
                 mes_seguinte = (dthr + relativedelta(months=1)).strftime('%m')
                 vencimento_faesa = datetime.datetime.strptime(f'05/{mes_seguinte}/{ano}','%d/%m/%Y')
-                diferenca_dias = (abs(dthr - vencimento_faesa).days)
+                diferenca_dias = (abs(dthr - vencimento_faesa).days + 1)
                 await message.channel.send(f'Fala {message.author.name}!')
                 await message.channel.send(f'O vencimento da fatura é só no proximo mês. Faltam **{diferenca_dias} dias**, fica ligado doidão')
             else:
