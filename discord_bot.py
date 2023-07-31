@@ -37,7 +37,7 @@ reacoes = ['🆙','🤩','😎','😍','😃','💞','👊','😎','🤗','💯'
 async def faesa():
     now = datetime.datetime.now()
     print('Faesa rodando às', now.hour, 'Dia', now.day)
-    if now.day == 5:  # representa o dia
+    if now.day == 5 and now.hour == 8:  # representa o dia
         channels = [689903332877140008]
         victao = await client.fetch_user(251875810959556609)
         breno = await client.fetch_user(371471762640338946)
@@ -50,7 +50,7 @@ async def faesa():
         for i in channels :
                 channel = client.get_channel(i)
                 await channel.send(f'**ATENÇÃO**')
-                await channel.send(f':trophy: **PRESTE BEM ATENÇÃO** :trophy: \n{victao.mention,breno.mention,lg.mention,Amendoas.mention,Amendoas2.mention,grazy.mention,remix.mention,gustavo.mention}')
+                await channel.send(f':trophy: **PRESTE BEM ATENÇÃO** :trophy: \n{victao.mention}, {breno.mention}, {lg.mention}, {Amendoas.mention}, {Amendoas2.mention}, {grazy.mention}, {remix.mention}, {gustavo.mention}')
                 await channel.send(f'**HOJE É O GRANDE DIA :moneybag: :books:**')
                 
     elif 1 <= now.day <= 4:
@@ -102,7 +102,7 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print('Oi Papai Bença! Estou Online! Meu nome é', self.user)
         print('Version 3.v04')
-        print('Dia 01/06/2023 08:07')
+        print('Dia 05/06/2023 08:14')
         y = datetime.datetime.now()
         # locale.setlocale(locale.LC_ALL, '')
         z = y.strftime("%H")
@@ -195,17 +195,17 @@ class MyClient(discord.Client):
                 await message.channel.send(file=discord.File('bomdia.gif'))
 
         # só falar bem da tia catarina
-        if message.author.id == 402168333153337347:
-            frase_cat = random.randint(1,3)
+        # if message.author.id == 402168333153337347:
+        #     frase_cat = random.randint(1,3)
 
-            if frase_cat == 1:
-                    await message.channel.send('digam oi pra Tia Catarina ai caraiooo')
+        #     if frase_cat == 1:
+        #             await message.channel.send('digam oi pra Tia Catarina ai caraiooo')
 
-            if frase_cat == 2:
-                    await message.channel.send('Ajoelhem perante a nossa ADM')
+        #     if frase_cat == 2:
+        #             await message.channel.send('Ajoelhem perante a nossa ADM')
 
-            if frase_cat == 3:
-                    await message.channel.send('quem vai de ban hoje ?')
+        #     if frase_cat == 3:
+        #             await message.channel.send('quem vai de ban hoje ?')
 
         # só falar merda do nandinho
         if message.author.id == 282859044593598464:
